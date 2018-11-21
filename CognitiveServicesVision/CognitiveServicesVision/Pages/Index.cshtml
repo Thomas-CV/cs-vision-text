@@ -1,0 +1,42 @@
+﻿@page "{index?}"
+@model CognitiveServicesVision.Pages.IndexModel
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="~/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/main.css" />
+	<title>Index</title>
+</head>
+<body class="bg-dark">
+	<section class="p-1 text-white bg-info">
+		<div class="justify-content-center text-center">
+			<h1 class="display-4">Azure Cognitive Services Demo - Text Recognition</h1>
+		</div>
+	</section>
+	<section>
+		<div class="container-fluid">
+			<div class="row">
+				<div id="clikblock" class="col m-2 p-2 border border-secondary text-center box-image">
+					<div id="loaderblock" class="loader"></div>
+					<img alt="WorkImage" src="/@Model.ImageFilename" class="shadow img-fluid" />
+					<canvas id="canvasblock" width="926" height="632" class="box-blocks"></canvas>
+				</div>
+				<div class="col m-2 p-2 border border-secondary box-json">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col p-2 text-center">
+								<h1 class="text-warning display-3 font-weight-bold">@Html.Raw(Model.ImageDescription)</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="~/app/main.js"></script>
+	<script type="text/javascript">
+		attachLoaderOnClick(@Model.ImageIndex, 'clikblock', 'loaderblock');
+	</script>
+</body>
+</html>
+
